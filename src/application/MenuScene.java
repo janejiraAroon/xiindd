@@ -1,88 +1,53 @@
 package application;
 
-import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-class MButton extends Button{
-	private Button btn ;
-	private String label;
-	
-	public MButton(String label) {
-		this.label = label;
-		System.out.println(label);
-		btn = new Button("Hello");
-		btn.setPrefWidth(100);
-		btn.setOnMouseEntered(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent event) {
-				btn.setPrefSize(150, 70);
-			}
-		});
-		btn.setOnMouseExited(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent event) {
-			btn.setPrefSize(100, 50);
-			}
-		});
-		
-	}
-	
-	
-}
 
-public class MenuScene extends Application{
-
-	@Override
-	public void start(Stage stage) throws Exception {
-		// TODO Auto-generated method stub
-		VBox root = new VBox(50);
-		root.setPadding(new Insets(10,5,10,5));
-		root.setAlignment(Pos.CENTER);
-		
-		Label gameName = new Label("PROG METH GAME");
-		gameName.setPadding(new Insets(10,0,50,0));
-		
-		Button startBtn = new MButton("START");
-		startBtn.setPrefWidth(100);
-		
-		
-		MButton howtoBtn = new MButton("HOW TO PLAY");
-		
-		Button highscoreBtn = new Button("HIGHSCORES");
-		highscoreBtn.setPrefWidth(100);
-		highscoreBtn.setOnMouseEntered(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent event) {
-				highscoreBtn.setPrefSize(150, 70);
-			}
-		});
-		highscoreBtn.setOnMouseExited(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent event) {
-				highscoreBtn.setPrefSize(100, 50);
-			}
-		});
-		
-		
-		root.getChildren().addAll(gameName,startBtn,howtoBtn,highscoreBtn);
-		
-		Scene scene = new Scene(root,500,500);
-		stage.setTitle("I love Prog Meth");
-		stage.setScene(scene);
-		stage.show();
-	}
+public class MenuScene extends VBox{
 	
-	public static void main(String [] args) {
-		launch(args);
+	private Scene s1, s2, s3;
+	private Stage stageOwner;
+	private Label label;
+	private OurButton startBtn,howtoBtn,highscoreBtn;
+	
+	public MenuScene(/*Scene s1,Scene s2,Scene s3, Stage stageOwner*/){	
+		this.s1 = s1 ;// this.s2 = s2; this.s3 = s3;
+		this.stageOwner = stageOwner;
+		label  = new Label("Progmeth");
+		label.setFont(new Font(100));
+		setSpacing(50);
+		setPadding(new Insets(10,5,10,5));
+		setAlignment(Pos.CENTER);	
+		
+		startBtn = new OurButton("START"/*,s1,stageOwner*/);
+		howtoBtn = new OurButton("HOW TO PLAY"/*,s2,stageOwner*/);
+		highscoreBtn = new OurButton("HIGHSCORES"/*,s3,stageOwner*/);
+		getChildren().addAll(label,startBtn,howtoBtn,highscoreBtn);
+		
+		
 	}
+
+	public OurButton getStartBtn() {
+		return startBtn;
+	}
+
+	public OurButton getHowtoBtn() {
+		return howtoBtn;
+	}
+
+	public OurButton getHighscoreBtn() {
+		return highscoreBtn;
+	}
+		
+	
 
 }
