@@ -18,7 +18,7 @@ public class MainGame extends Application {
 	private Scene sceneMenu, sceneSelect, sceneLevel;
 	private MenuScene menu;
 	private LevelScene level;
-	private SelectMode select;
+	private SelectMode select;	
 	
 
 	@Override
@@ -26,7 +26,7 @@ public class MainGame extends Application {
 		menu = new MenuScene(); sceneMenu = new Scene(menu,900,600);
 		select = new SelectMode(); sceneSelect = new Scene(select,900,600);
 		level = new LevelScene(); sceneLevel = new Scene(level,900,600);
-	
+		
 		
 		((Button)menu.getStartBtn()).setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -55,12 +55,11 @@ public class MainGame extends Application {
 				stage.setScene(sceneSelect);
 			}
 		});
+	
 		stage.setTitle("I Love Prog Meth");
 		stage.setScene(sceneMenu);
 		stage.show();
-		
 	}
-	
 		
 
 	public static void main(String[] args) {

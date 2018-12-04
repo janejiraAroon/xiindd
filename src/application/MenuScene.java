@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.Side;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -17,7 +18,9 @@ import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 
@@ -27,19 +30,25 @@ public class MenuScene extends VBox{
 	private Stage stageOwner;
 	private Label label;
 	private OurButton startBtn,howtoBtn,highscoreBtn ;
-	BackgroundSize mainBgSize  = new BackgroundSize(900, 600, false, false, false, true);
+	BackgroundPosition mainBgPos = new BackgroundPosition(Side.LEFT,0.5, true, Side.TOP, 0, false);
+	BackgroundSize mainBgSize  = new BackgroundSize(900, 600, false, false, true, false);
 	
 	public MenuScene(/*Scene s1,Scene s2,Scene s3, Stage stageOwner*/){	
 		this.s1 = s1 ;// this.s2 = s2; this.s3 = s3;
 		this.stageOwner = stageOwner;
-		label  = new Label("Progmeth");
-		label.setFont(new Font(100));
-		setPadding(new Insets(10,5,10,5));
-		setAlignment(Pos.CENTER);	
+		label  = new Label("Colors");
+		
+		label.setFont(Font.font("Arial",FontWeight.THIN,80));
+		label.setTextFill(Color.WHITE);
+
+		setSpacing(5);
+		setPadding(new Insets(10,5,10,150));
+		setAlignment(Pos.CENTER_LEFT);	
 		
 		
-		BackgroundImage mainBg = new BackgroundImage(new Image("mainBg.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.DEFAULT, mainBgSize);
-		setBackground(new Background(mainBg));
+		BackgroundImage mainBg = new BackgroundImage(new Image("mainBg.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,mainBgPos, mainBgSize);
+		setBackground(new Background(mainBg));  //change to classloader
+		 
 		
 		startBtn = new OurButton("START"/*,s1,stageOwner*/);
 		howtoBtn = new OurButton("HOW TO PLAY"/*,s2,stageOwner*/);
