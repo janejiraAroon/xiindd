@@ -48,6 +48,11 @@ public class GameLogic {
 			carrot.setPosition(900, posRandom);
 			addnewObject(carrot);
 		}
+		if (numRandom == 9) {
+			Sheep sheep = new Sheep();
+			sheep.setPosition(900, posRandom);
+			addnewObject(sheep);
+		}
 		
 	}
 	

@@ -28,6 +28,8 @@ public class RenderableHolder {
 	public static Image sheep5;
 	public static Image sheep6;
 	public static Image sheep7;
+	public static Image sheep8;
+	public static Image sheep9;
 	
 	public static Image rPurple;
 	public static Image rBlue;
@@ -49,12 +51,14 @@ public class RenderableHolder {
 		cRed = new Image(ClassLoader.getSystemResource("Cred.png").toString());
 		
 		sheep1 = new Image(ClassLoader.getSystemResource("sheep1.png").toString());
-		sheep1 = new Image(ClassLoader.getSystemResource("sheep2.png").toString());
+		sheep2 = new Image(ClassLoader.getSystemResource("sheep2.png").toString());
 		sheep3 = new Image(ClassLoader.getSystemResource("sheep3.png").toString());
 		sheep4 = new Image(ClassLoader.getSystemResource("sheep4.png").toString());
 		sheep5 = new Image(ClassLoader.getSystemResource("sheep5.png").toString());
 		sheep6 = new Image(ClassLoader.getSystemResource("sheep6.png").toString());
 		sheep7 = new Image(ClassLoader.getSystemResource("sheep7.png").toString());
+		sheep8 = new Image(ClassLoader.getSystemResource("sheep8.png").toString());
+		sheep7 = new Image(ClassLoader.getSystemResource("sheep9.png").toString());
 		
 		rPurple = new Image(ClassLoader.getSystemResource("Rpurple2.png").toString());
 		rBlue = new Image(ClassLoader.getSystemResource("Rblue2.png").toString());
