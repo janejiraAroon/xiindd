@@ -14,12 +14,14 @@ public class InputUtility {
 	public static void backToMenu(Scene menuScene, Stage stage) {
 		stage.setScene(menuScene);
 	}
-	
-	public static void pauseGame() {
-		isGamePaused = !isGamePaused;
-	}
-	
-	public static void SetKeyPressed(KeyCode keyCode, boolean pressed) {
+//	
+//	public static void pauseGame() {
+//		isGamePaused = !isGamePaused;
+//	}
+//	
+		
+	public static void setKeyPressed(KeyCode keyCode, boolean pressed) {
+		// TODO Auto-generated method stub
 		if (!isGamePaused) {
 			if (pressed) {
 				if(!keyPressed.contains(keyCode)) {
@@ -30,4 +32,13 @@ public class InputUtility {
 			}
 		}
 	}
+
+	public static ArrayList<KeyCode> getKeyPressed() {
+		return keyPressed;
+	}
+	
+	public static boolean getKeyPressed(KeyCode keycode) {
+		return keyPressed.contains(keycode);
+	}
+
 }

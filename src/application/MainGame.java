@@ -1,11 +1,17 @@
 package application;
 
+import SharedObject.RenderableHolder;
+import drawing.GameScene;
+import input.InputUtility;
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import logic.GameLogic;
 
 
 public class MainGame extends Application {
@@ -19,7 +25,7 @@ public class MainGame extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		menu = new MenuScene(); sceneMenu = new Scene(menu,900,600);
+		/*menu = new MenuScene(); sceneMenu = new Scene(menu,900,600);
 		select = new SelectMode(); sceneSelect = new Scene(select,900,600);
 		level = new LevelScene(); sceneLevel = new Scene(level,900,600);
 		
@@ -56,11 +62,34 @@ public class MainGame extends Application {
 		stage.setTitle("I Love Prog Meth");
 		stage.setScene(sceneMenu);
 		stage.show();
+		*/
+		try {
+		StackPane root = new StackPane();
+		Scene scene = new Scene(root);
+		stage.setTitle("Little Bunny");
+		stage.setScene(scene);
 		
+		GameLogic logic = new GameLogic();
+		GameScene gameScene = new GameScene(900,600);
+		root.getChildren().add(gameScene);
+		gameScene.requestFocus();
+		
+		stage.show();
+		
+		AnimationTimer animation = new AnimationTimer() {
+			public void handle(long now) {
+				gameScene.paintComponent();
+				logic.logicUpdate();
+				RenderableHolder.getInstance().update();
+			}
+		};
+		animation.start();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 		
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		launch(args);
 
 	}

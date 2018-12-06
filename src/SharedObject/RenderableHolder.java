@@ -3,15 +3,16 @@ package SharedObject;
 import java.util.ArrayList;
 
 import javafx.scene.image.Image;
+import logic.Astronaunt;
 import logic.Carrot;
 import logic.Sheep;
+import logic.Sprite;
 
 public class RenderableHolder {
 	private static final RenderableHolder instance = new RenderableHolder();
 	
-	private ArrayList<IRenderable> carrots;
-	private ArrayList<IRenderable> sheepp;
-	//add for astronaut
+	private ArrayList<IRenderable> allSprite;
+	private Astronaunt astronaunt;
 	
 	public static Image cPurple;
 	public static Image cBlue;
@@ -60,46 +61,45 @@ public class RenderableHolder {
 		rGreen = new Image(ClassLoader.getSystemResource("Rgreen2.png").toString());
 		rYellow = new Image(ClassLoader.getSystemResource("Ryellow2.png").toString());
 		rOrange = new Image(ClassLoader.getSystemResource("Rorange2.png").toString());
-		rRed = new Image(ClassLoader.getSystemResource("Rred.png").toString());
+		rRed = new Image(ClassLoader.getSystemResource("Rred2.png").toString());
 	}
 	
 	public RenderableHolder() {
-		carrots = new ArrayList<IRenderable>();
-		sheepp = new ArrayList<IRenderable>();
+		allSprite = new ArrayList<IRenderable>();
 	}
 	
+	public ArrayList<IRenderable> getAllSprite() {
+		return allSprite;
+	}
+
 	public static RenderableHolder getInstance() {
 		return instance;
 	}
 	
 	public void add(IRenderable charactor) {
+		allSprite.add(charactor);
 		if (charactor instanceof Carrot) {
-			carrots.add(charactor);
+			System.out.println("carrot");
 		}else if (charactor instanceof Sheep) {
-			sheepp.add(charactor);
+			System.out.println("sheep");
+		}else if (charactor instanceof Astronaunt) {
+			astronaunt = (Astronaunt) charactor;
+			System.out.println("Astronaunt");
 		}
 	}
 	
 	public void update() {
-		for (int i = carrots.size() -1 ; i>=0 ;i--) {
-			if (carrots.get(i).isDestroyed()) {
-				carrots.remove(i);
+		for (int i = allSprite.size()-1 ; i >= 0 ; i--) {
+			if (!(allSprite.get(i) instanceof Astronaunt)) {
+				Sprite what = (Sprite) allSprite.get(i);
+				if (astronaunt.interscetsSprite(what)) {
+					allSprite.remove(i);
+				}
 			}
 		}
-		for (int i = sheepp.size()-1 ; i>=0 ; i--) {
-			if (sheepp.get(i).isDestroyed()) {
-				carrots.remove(i);
-			}
-		}
+		
 	}
 
-	public ArrayList<IRenderable> getCarrots() {
-		return carrots;
-	}
-
-	public ArrayList<IRenderable> getSheepp() {
-		return sheepp;
-	}
 	
 	
 
