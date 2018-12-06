@@ -30,30 +30,28 @@ public class MenuScene extends VBox{
 	private Stage stageOwner;
 	private Label label;
 	private OurButton startBtn,howtoBtn,highscoreBtn ;
-	BackgroundPosition mainBgPos = new BackgroundPosition(Side.LEFT,0.5, true, Side.TOP, 0, false);
-	BackgroundSize mainBgSize  = new BackgroundSize(900, 600, false, false, true, false);
+//	BackgroundPosition mainBgPos = new BackgroundPosition(Side.LEFT,0.5, true, Side.TOP, 0, false);
+	BackgroundSize mainBgSize  = new BackgroundSize(900, 600, false, false, false, false);
 	
 	public MenuScene(/*Scene s1,Scene s2,Scene s3, Stage stageOwner*/){	
 		this.s1 = s1 ;// this.s2 = s2; this.s3 = s3;
 		this.stageOwner = stageOwner;
-		label  = new Label("Colors");
+		label  = new Label("Little\nBunny");
+		label.setFont(Font.loadFont("file:res/PressStart2P.ttf", 60));
+		label.setTextFill(Color.WHITE);		
 		
-		label.setFont(Font.font("Arial",FontWeight.THIN,80));
-		label.setTextFill(Color.WHITE);
-
 		setSpacing(5);
-		setPadding(new Insets(10,5,10,150));
 		setAlignment(Pos.CENTER_LEFT);	
+		setPadding(new Insets(20,50,0,450));
 		
-		
-		BackgroundImage mainBg = new BackgroundImage(new Image("mainBg.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,mainBgPos, mainBgSize);
+		BackgroundImage mainBg = new BackgroundImage(new Image("mainBg.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.DEFAULT,mainBgSize);
 		setBackground(new Background(mainBg));  //change to classloader
 		 
 		
 		startBtn = new OurButton("START"/*,s1,stageOwner*/);
 		howtoBtn = new OurButton("HOW TO PLAY"/*,s2,stageOwner*/);
 		highscoreBtn = new OurButton("HIGHSCORES"/*,s3,stageOwner*/);
-		getChildren().addAll(label,startBtn,howtoBtn,highscoreBtn);
+		getChildren().addAll(label,startBtn,howtoBtn,highscoreBtn);		
 		
 
 	}

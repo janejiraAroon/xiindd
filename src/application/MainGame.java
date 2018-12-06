@@ -27,6 +27,7 @@ public class MainGame extends Application {
 		select = new SelectMode(); sceneSelect = new Scene(select,900,600);
 		level = new LevelScene(); sceneLevel = new Scene(level,900,600);
 		
+		stage.setResizable(false);
 		
 		((Button)menu.getStartBtn()).setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -55,6 +56,7 @@ public class MainGame extends Application {
 				stage.setScene(sceneSelect);
 			}
 		});
+	
 	
 		stage.setTitle("I Love Prog Meth");
 		stage.setScene(sceneMenu);
