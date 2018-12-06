@@ -23,7 +23,7 @@ public class InputUtility {
 		
 	public static void setKeyPressed(KeyCode keyCode, boolean pressed) {
 		// TODO Auto-generated method stub
-			
+		System.out.println(keyPressed);
 		if (pressed && keyCode.toString() == "P") {
 			System.out.println(keyPressed.contains(keyCode));
 			if(!keyPressed.contains(keyCode)) {
