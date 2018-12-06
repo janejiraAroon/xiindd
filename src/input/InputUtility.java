@@ -23,15 +23,28 @@ public class InputUtility {
 		
 	public static void setKeyPressed(KeyCode keyCode, boolean pressed) {
 		// TODO Auto-generated method stub
-		if (!isGamePaused && !isDie) {
-			if (pressed) {
-				if(!keyPressed.contains(keyCode)) {
-					keyPressed.add(keyCode);
-				}
+			
+		if (pressed && keyCode.toString() == "P") {
+			System.out.println(keyPressed.contains(keyCode));
+			if(!keyPressed.contains(keyCode)) {
+				keyPressed.add(keyCode);
+				System.out.println("pause");
+				pauseGame();
 			}else {
 				keyPressed.remove(keyCode);
+				System.out.println("play");
+				pauseGame();
 			}
+		} else if (!pressed && keyCode.toString() == "P"){
+	
+		} else if (pressed) {
+			if(!keyPressed.contains(keyCode)) {
+				keyPressed.add(keyCode);
+			}
+		}else {
+			keyPressed.remove(keyCode);
 		}
+
 	}
 
 	public static ArrayList<KeyCode> getKeyPressed() {

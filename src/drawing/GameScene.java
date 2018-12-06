@@ -7,6 +7,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import logic.GameLogic;
 
 public class GameScene extends Canvas{
@@ -24,6 +25,7 @@ public class GameScene extends Canvas{
 		this.setOnKeyReleased((KeyEvent event) -> {
 			InputUtility.setKeyPressed(event.getCode(), false);
 		});
+		
 
 	}
 	
@@ -39,6 +41,8 @@ public class GameScene extends Canvas{
 		gc.setFill(Color.DARKSLATEBLUE);
 		String pscore = "SCORE : "+(GameLogic.score);
 		gc.fillText(pscore, 800, 20);
+		
+	
 	}
 	
 }

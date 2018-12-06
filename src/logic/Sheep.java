@@ -1,6 +1,7 @@
 package logic;
 
 import SharedObject.RenderableHolder;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 public class Sheep extends Sprite{
@@ -63,5 +64,6 @@ public class Sheep extends Sprite{
 		updateByScore();
 		animationpic();
 	}
+	
 	
 }
