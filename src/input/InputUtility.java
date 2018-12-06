@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 public class InputUtility {
 	
 	public static boolean isGamePaused= false;
+	public static boolean isDie = false;
 	public static ArrayList<KeyCode> keyPressed = new ArrayList<>();
 	
 	public static void backToMenu(Scene menuScene, Stage stage) {
@@ -22,7 +23,7 @@ public class InputUtility {
 		
 	public static void setKeyPressed(KeyCode keyCode, boolean pressed) {
 		// TODO Auto-generated method stub
-		if (!isGamePaused) {
+		if (!isGamePaused && !isDie) {
 			if (pressed) {
 				if(!keyPressed.contains(keyCode)) {
 					keyPressed.add(keyCode);
