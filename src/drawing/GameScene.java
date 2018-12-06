@@ -54,6 +54,12 @@ public class GameScene extends Canvas{
 			System.out.println("input win");
 			gc.setFill(Color.BLUEVIOLET);
 			gc.fillText("You are the winner!", 400 ,300);
+			gc.drawImage(RenderableHolder.rPurple, 100, 350);
+			gc.drawImage(RenderableHolder.rBlue,230, 350);
+			gc.drawImage(RenderableHolder.rGreen,360, 350);
+			gc.drawImage(RenderableHolder.rYellow,490, 350);
+			gc.drawImage(RenderableHolder.rOrange,620, 350);
+			gc.drawImage(RenderableHolder.rRed,750, 350);
 		}
 	
 	}

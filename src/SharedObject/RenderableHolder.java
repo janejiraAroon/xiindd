@@ -58,7 +58,7 @@ public class RenderableHolder {
 		sheep6 = new Image(ClassLoader.getSystemResource("sheep6.png").toString());
 		sheep7 = new Image(ClassLoader.getSystemResource("sheep7.png").toString());
 		sheep8 = new Image(ClassLoader.getSystemResource("sheep8.png").toString());
-		sheep7 = new Image(ClassLoader.getSystemResource("sheep9.png").toString());
+		sheep9 = new Image(ClassLoader.getSystemResource("sheep9.png").toString());
 		
 		rPurple = new Image(ClassLoader.getSystemResource("Rpurple2.png").toString());
 		rBlue = new Image(ClassLoader.getSystemResource("Rblue2.png").toString());

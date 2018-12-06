@@ -43,18 +43,23 @@ public class MainGame extends Application {
 		GameLogic logic = new GameLogic();
 		GameScene gameScene = new GameScene(900,600);
 		root.getChildren().add(gameScene);		
-		gameScene.requestFocus();
+		
 		
 		((Button)menu.getStartBtn()).setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
+				System.out.println("start");
 				stage.setScene(scene);
-
+				gameScene.requestFocus();
 				AnimationTimer animation = new AnimationTimer() {
 					public void handle(long now) {
 						gameScene.paintComponent();
 						logic.logicUpdate();
 						RenderableHolder.getInstance().update();
+						if (InputUtility.getKeyPressed(KeyCode.E)) {
+							stage.setScene(sceneMenu);
+							menu.requestFocus();
+						}
 					}
 				};
 				animation.start();
