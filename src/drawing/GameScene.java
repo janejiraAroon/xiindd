@@ -42,6 +42,10 @@ public class GameScene extends Canvas{
 		String pscore = "SCORE : "+(GameLogic.score);
 		gc.fillText(pscore, 800, 20);
 		
+		if (InputUtility.isDie) {
+			gc.setFill(Color.BLACK);
+			gc.fillText("GAME OVER", 400, 300);
+		}
 	
 	}
 	
