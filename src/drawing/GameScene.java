@@ -42,9 +42,18 @@ public class GameScene extends Canvas{
 		String pscore = "SCORE : "+(GameLogic.score);
 		gc.fillText(pscore, 800, 20);
 		
+		//TODO when game is over
 		if (InputUtility.isDie) {
+			System.out.println("input die");
 			gc.setFill(Color.BLACK);
 			gc.fillText("GAME OVER", 400, 300);
+		}
+		
+		//TODO when game is win
+		if (InputUtility.isWin) {
+			System.out.println("input win");
+			gc.setFill(Color.BLUEVIOLET);
+			gc.fillText("You are the winner!", 400 ,300);
 		}
 	
 	}

@@ -26,7 +26,7 @@ public class GameLogic {
 	
 
 	public void logicUpdate() {
-		if (!InputUtility.isGamePaused && !InputUtility.isDie) {
+		if (!InputUtility.isGamePaused && !InputUtility.isDie && !InputUtility.isWin) {
 			astronaunt.update();
 			for (int i = gameObjectContainer.size()-1 ; i >= 0 ; i--) {
 				Sprite what = gameObjectContainer.get(i);
@@ -36,6 +36,12 @@ public class GameLogic {
 						if (what instanceof Carrot) {
 							System.out.println("carrot");
 							score+=100;
+							//TODO for winner
+							if (score == 100) {
+								InputUtility.isWin = true;
+								System.out.println("WIN!");
+								break;
+							}
 							gameObjectContainer.remove(i);
 						}
 						if (what instanceof Sheep) {
@@ -47,7 +53,7 @@ public class GameLogic {
 				}
 			}
 
-			if (!InputUtility.isDie) {
+			if (!InputUtility.isDie && !InputUtility.isWin) {
 				numRandom = (int)(Math.random()*100 + 1);
 				System.out.println(numRandom);
 				posRandom = Math.random()*600;

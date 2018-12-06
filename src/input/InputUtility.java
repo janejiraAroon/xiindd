@@ -11,6 +11,7 @@ public class InputUtility {
 	public static boolean isGamePaused= false;
 	public static boolean isDie = false;
 	public static ArrayList<KeyCode> keyPressed = new ArrayList<>();
+	public static boolean isWin = false;
 	
 	public static void backToMenu(Scene menuScene, Stage stage) {
 		stage.setScene(menuScene);
