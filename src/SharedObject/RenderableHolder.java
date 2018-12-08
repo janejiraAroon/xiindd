@@ -45,22 +45,22 @@ public class RenderableHolder {
 	}
 	
 	public static void loadResourse() {
-		cPurple = new Image(ClassLoader.getSystemResource("Cpurple.png").toString());
-		cBlue = new Image(ClassLoader.getSystemResource("Cblue.png").toString());
-		cGreen = new Image(ClassLoader.getSystemResource("Cgreen.png").toString());
-		cYellow = new Image(ClassLoader.getSystemResource("Cyellow.png").toString());
-		cOrange = new Image(ClassLoader.getSystemResource("Corange.png").toString());
-		cRed = new Image(ClassLoader.getSystemResource("Cred.png").toString());
+		cPurple = new Image(ClassLoader.getSystemResource("Cpurple.png").toString(),80,80,true,false);
+		cBlue = new Image(ClassLoader.getSystemResource("Cblue.png").toString(),80,80,true,false);
+		cGreen = new Image(ClassLoader.getSystemResource("Cgreen.png").toString(),80,80,true,false);
+		cYellow = new Image(ClassLoader.getSystemResource("Cyellow.png").toString(),80,80,true,false);
+		cOrange = new Image(ClassLoader.getSystemResource("Corange.png").toString(),80,80,true,false);
+		cRed = new Image(ClassLoader.getSystemResource("Cred.png").toString(),80,80,true,false);
 		
-		sheep1 = new Image(ClassLoader.getSystemResource("sheep1.png").toString());
-		sheep2 = new Image(ClassLoader.getSystemResource("sheep2.png").toString());
-		sheep3 = new Image(ClassLoader.getSystemResource("sheep3.png").toString());
-		sheep4 = new Image(ClassLoader.getSystemResource("sheep4.png").toString());
-		sheep5 = new Image(ClassLoader.getSystemResource("sheep5.png").toString());
-		sheep6 = new Image(ClassLoader.getSystemResource("sheep6.png").toString());
-		sheep7 = new Image(ClassLoader.getSystemResource("sheep7.png").toString());
-		sheep8 = new Image(ClassLoader.getSystemResource("sheep8.png").toString());
-		sheep9 = new Image(ClassLoader.getSystemResource("sheep9.png").toString());
+		sheep1 = new Image(ClassLoader.getSystemResource("sheep1.png").toString(),80,80,true,false);
+		sheep2 = new Image(ClassLoader.getSystemResource("sheep2.png").toString(),80,80,true,false);
+		sheep3 = new Image(ClassLoader.getSystemResource("sheep3.png").toString(),80,80,true,false);
+		sheep4 = new Image(ClassLoader.getSystemResource("sheep4.png").toString(),80,80,true,false);
+		sheep5 = new Image(ClassLoader.getSystemResource("sheep5.png").toString(),80,80,true,false);
+		sheep6 = new Image(ClassLoader.getSystemResource("sheep6.png").toString(),80,80,true,false);
+		sheep7 = new Image(ClassLoader.getSystemResource("sheep7.png").toString(),80,80,true,false);
+		sheep8 = new Image(ClassLoader.getSystemResource("sheep8.png").toString(),80,80,true,false);
+		sheep9 = new Image(ClassLoader.getSystemResource("sheep9.png").toString(),80,80,true,false);
 		
 		rPurple = new Image(ClassLoader.getSystemResource("Rpurple2.png").toString());
 		rBlue = new Image(ClassLoader.getSystemResource("Rblue2.png").toString());

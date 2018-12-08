@@ -45,9 +45,9 @@ public class Sheep extends Sprite{
 		}else if (countPic == 6) {
 			setImage(RenderableHolder.sheep7);
 		}else if (countPic == 7) {
-			setImage(RenderableHolder.sheep7);
+			setImage(RenderableHolder.sheep8);
 		}else if (countPic == 8) {
-			setImage(RenderableHolder.sheep7);
+			setImage(RenderableHolder.sheep9);
 		}else if (countPic == 9) {
 			setImage(RenderableHolder.sheep1);
 		}
