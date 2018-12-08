@@ -45,7 +45,7 @@ public class MenuScene extends VBox{
 		setPadding(new Insets(20,50,0,450));
 		
 		BackgroundImage mainBg = new BackgroundImage(new Image("mainBg.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.DEFAULT,mainBgSize);
-		setBackground(new Background(mainBg));  //change to classloader
+		setBackground(new Background(mainBg));   //change to classloader
 		 
 		
 		startBtn = new OurButton("START"/*,s1,stageOwner*/);

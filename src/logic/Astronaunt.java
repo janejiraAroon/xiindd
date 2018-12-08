@@ -9,7 +9,7 @@ public class Astronaunt extends Sprite{
 	public Astronaunt() {
 		super();
 		//TODO change the name of pic
-		String image_path = ClassLoader.getSystemResource("sheep1.png").toString();
+		String image_path = ClassLoader.getSystemResource("astronaut.png").toString();
 		setImage(new Image(image_path));
 	}
 	
