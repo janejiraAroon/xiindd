@@ -30,13 +30,11 @@ public class MainGame extends Application {
 	
 	private Scene sceneMenu, sceneSelect, sceneLevel;
 	private MenuScene menu;
-	private LevelScene level;
 
 	@Override
 	public void start(Stage stage) throws Exception {
 		menu = new MenuScene(); sceneMenu = new Scene(menu,900,600);
 		//sceneSelect = new SelectMode(); sceneSelect = new Scene(sceneSelect,900,600);
-		level = new LevelScene(); sceneLevel = new Scene(level,900,600);
 		
 		VBox root = new	VBox();
 		Scene scene = new Scene(root);
@@ -82,12 +80,6 @@ public class MainGame extends Application {
 //			}
 //		});
 //		
-		((Button)level.getBack()).setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				stage.setScene(sceneSelect);
-			}
-		});
 		
 		stage.setResizable(false);
 		stage.setTitle("Little Bunny");

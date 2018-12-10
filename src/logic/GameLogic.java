@@ -11,12 +11,12 @@ public class GameLogic {
 	public static int score = 0;
 	private int numRandom;
 	private double posRandom;
-	private int lives  = 2 ;
+	public static int lives  = 2 ;
 	
 	public GameLogic() {
 		this.gameObjectContainer = new ArrayList<Sprite>();
 		astronaunt = new Astronaunt();
-		astronaunt.setPosition(0, 200);
+		astronaunt.setPosition(20, 200);
 		addnewObject(astronaunt);
 	}
 	
@@ -37,9 +37,10 @@ public class GameLogic {
 						if (what instanceof Carrot) {
 							System.out.println("carrot");
 							score+=100;
+							
 							//TODO for winner
 							if (score == 10000) {
-								InputUtility.isWin = true;
+								InputUtility.isWin = true ;
 								System.out.println("WIN!");
 								break;
 							}
@@ -48,10 +49,17 @@ public class GameLogic {
 						if (what instanceof Sheep) {
 							System.out.println("sheep");
 							if(lives == 0) {
-								InputUtility.isDie = true;}
+								lives -= 1 ;
+								InputUtility.isDie = true;
+								System.out.println("Game Over!") ;
+								}
 							else
 								lives -=1 ;
 							
+							gameObjectContainer.remove(i);
+						}
+						if(what instanceof Heart) {
+							lives += 1 ;
 							gameObjectContainer.remove(i);
 						}
 					}
@@ -73,6 +81,16 @@ public class GameLogic {
 					sheep.setPosition(900, posRandom);
 					addnewObject(sheep);
 				}
+					}
+			
+				if(lives < 2) {
+					if((int) Math.random()*1000 == 100) {
+						Heart heart = new Heart() ;
+						heart.setPosition(900, posRandom);
+						addnewObject(heart);
+					}
+				}
+				
 			}
 
 		}
@@ -80,4 +98,4 @@ public class GameLogic {
 
 	}
 
-}
+

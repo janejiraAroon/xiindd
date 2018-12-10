@@ -41,22 +41,34 @@ public class GameScene extends Canvas{
 			// System.out.println(entity.getZ());
 				sprite.draw(gc);
 		}
+		
 		gc.setFill(Color.DARKSLATEBLUE);
 		String pscore = "SCORE : "+(GameLogic.score);
-		gc.fillText(pscore, 800, 20);
+		gc.setFont(Font.loadFont("file:res/PressStart2P.ttf", 15));
+		gc.fillText(pscore, 700, 20);
+		
+		int lives = GameLogic.lives ;
+		int x = 700 ;
+		for(int i = 0 ; i <= lives  ;i++) {
+			gc.drawImage(RenderableHolder.heart, x, 550,50,50);
+			x += 50;
+		}
+ 
 		
 		//TODO when game is over
 		if (InputUtility.isDie) {
 			System.out.println("input die");
-			gc.setFill(Color.BLACK);
-			gc.fillText("GAME OVER", 400, 300);
+			gc.setFill(Color.DIMGRAY);
+			gc.setFont(Font.loadFont("file:res/PressStart2P.ttf", 50));
+			gc.fillText("GAME OVER", 200, 300);
 		}
 		
 		//TODO when game is win
 		if (InputUtility.isWin) {
 			System.out.println("input win");
-			gc.setFill(Color.BLUEVIOLET);
-			gc.fillText("You are the winner!", 400 ,300);
+			gc.setFill(Color.DIMGRAY);
+			gc.setFont(Font.loadFont("file:res/PressStart2P.ttf", 50));
+			gc.fillText("You are the winner!", 100 ,300);
 			gc.drawImage(RenderableHolder.rPurple, 100, 350);
 			gc.drawImage(RenderableHolder.rBlue,230, 350);
 			gc.drawImage(RenderableHolder.rGreen,360, 350);

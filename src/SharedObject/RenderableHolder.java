@@ -30,6 +30,7 @@ public class RenderableHolder {
 	public static Image sheep7;
 	public static Image sheep8;
 	public static Image sheep9;
+	public static Image addHeart ;
 	
 	public static Image rPurple;
 	public static Image rBlue;
@@ -40,6 +41,8 @@ public class RenderableHolder {
 	
 	public static Image levelBg ;
 	public static Image mainBg ;
+	
+	public static Image heart;
 	
 	static {
 		loadResourse();
@@ -72,6 +75,8 @@ public class RenderableHolder {
 	
 		levelBg = new Image(ClassLoader.getSystemResource("levelBg.png").toString());
 		mainBg = new Image(ClassLoader.getSystemResource("mainBg.png").toString());
+		
+		heart = new Image(ClassLoader.getSystemResource("heart.png").toString());
 
 	}
 	
