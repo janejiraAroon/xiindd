@@ -27,7 +27,7 @@ import javafx.stage.Stage;
 
 public class MainGame extends Application {
 
-	private Scene sceneMenu, sceneSelect, sceneLevel;
+	private Scene sceneMenu ;
 	private MenuScene menu;
 
 	@Override

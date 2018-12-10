@@ -44,7 +44,7 @@ public class GameLogic {
 							
 							//TODO for winner
 
-							if (score == 1000) {
+							if (score == 3600) {
 								InputUtility.isWin = true;
 								RenderableHolder.playingSound.stop();
 								RenderableHolder.congratsSound.play();
@@ -98,7 +98,7 @@ public class GameLogic {
 				}
 					
 			
-				if(lives <2 && (int)(Math.random()*400) == 7) {
+				if(lives <2 && (int)(Math.random()*800) == 7) {
 					Heart heart = new Heart() ;
 					heart.setPosition(900, posRandom);
 					addnewObject(heart);

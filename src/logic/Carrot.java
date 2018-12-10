@@ -36,11 +36,11 @@ public class Carrot extends Sprite{
 		}else if (GameLogic.score < 1800) {
 			positionX -= 8;
 		}else if (GameLogic.score < 2400) {
-			positionX -= 10;
-		}else if (GameLogic.score < 3300) {
 			positionX -= 12;
-		}else {
+		}else if (GameLogic.score < 3300) {
 			positionX -= 14;
+		}else {
+			positionX -= 16;
 		}
 	}
 	
