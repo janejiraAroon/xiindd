@@ -48,9 +48,9 @@ public class RenderableHolder {
 	public static MediaPlayer playingSound;
 	public static AudioClip sheepSound;
 	public static AudioClip collectCarrotSound;
-	
-	public static AudioClip  explosionSound;
-	
+	public static AudioClip loseSound;
+	public static AudioClip congratsSound;
+	public static AudioClip gameOverSound;
 	
 	static {
 		loadResourse();
@@ -88,7 +88,9 @@ public class RenderableHolder {
 		playingSound = new MediaPlayer(new Media(ClassLoader.getSystemResource("play2.mp3").toString()));
 		collectCarrotSound = new AudioClip(ClassLoader.getSystemResource("collectCarrot1.wav").toString());
 		sheepSound = new AudioClip(ClassLoader.getSystemResource("sheepSound2.mp3").toString());
-		explosionSound = new AudioClip(ClassLoader.getSystemResource("Explosion.wav").toString());
+		loseSound = new AudioClip(ClassLoader.getSystemResource("lose.wav").toString());
+		congratsSound = new AudioClip(ClassLoader.getSystemResource("congratulations.wav").toString());
+		gameOverSound = new AudioClip(ClassLoader.getSystemResource("game_over.wav").toString());
 	}
 	
 	public RenderableHolder() {

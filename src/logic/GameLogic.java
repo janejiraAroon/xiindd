@@ -40,8 +40,10 @@ public class GameLogic {
 							RenderableHolder.collectCarrotSound.play();
 							score+=100;
 							//TODO for winner
-							if (score == 10000) {
+							if (score == 100) {
 								InputUtility.isWin = true;
+								RenderableHolder.playingSound.stop();
+								RenderableHolder.congratsSound.play();
 								System.out.println("WIN!");
 								break;
 							}
@@ -52,6 +54,8 @@ public class GameLogic {
 							RenderableHolder.sheepSound.play();
 							if(lives == 0) {
 								RenderableHolder.playingSound.stop();
+								RenderableHolder.gameOverSound.play();;
+								RenderableHolder.loseSound.play();
 								InputUtility.isDie = true;}
 							else
 								lives -=1 ;
