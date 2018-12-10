@@ -11,6 +11,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -35,8 +36,6 @@ public class MainGame extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		menu = new MenuScene(); sceneMenu = new Scene(menu,900,600);
-		//sceneSelect = new SelectMode(); sceneSelect = new Scene(sceneSelect,900,600);
-		level = new LevelScene(); sceneLevel = new Scene(level,900,600);
 		
 		VBox root = new	VBox();
 		Scene scene = new Scene(root);
@@ -44,48 +43,32 @@ public class MainGame extends Application {
 		GameScene gameScene = new GameScene(900,600);
 		root.getChildren().add(gameScene);		
 		
-			
 		
 		((Button)menu.getStartBtn()).setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
-				System.out.println("start");
-				stage.setScene(scene);
-				gameScene.requestFocus();
-				AnimationTimer animation = new AnimationTimer() {
-					public void handle(long now) {
-						gameScene.updateBg();
-						gameScene.paintComponent();
-						logic.logicUpdate();
-						RenderableHolder.getInstance().update();
-						if (InputUtility.getKeyPressed(KeyCode.E)) {
-							stage.setScene(sceneMenu);
-							menu.requestFocus();
+				try {
+					checkNameInput(menu.getTextName());
+					System.out.println("start");
+					stage.setScene(scene);
+					gameScene.requestFocus();
+					AnimationTimer animation = new AnimationTimer() {
+						public void handle(long now) {
+							gameScene.updateBg();
+							gameScene.paintComponent();
+							logic.logicUpdate();
+							RenderableHolder.getInstance().update();
+							if (InputUtility.getKeyPressed(KeyCode.E)) {
+								stage.setScene(sceneMenu);
+								menu.requestFocus();
+							}
 						}
-					}
-				};
-				animation.start();
-			}
-		});
-//		
-//		((Button)sceneSelect.getStMode()).setOnAction(new EventHandler<ActionEvent>() {
-//			@Override
-//			public void handle(ActionEvent event) {
-//				stage.setScene(sceneLevel);
-//			}
-//		});
-//		
-//		((Button)sceneSelect.getBack()).setOnAction(new EventHandler<ActionEvent>() {
-//			@Override
-//			public void handle(ActionEvent event) {
-//				stage.setScene(sceneMenu);
-//			}
-//		});
-//		
-		((Button)level.getBack()).setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				stage.setScene(sceneSelect);
+					};
+					animation.start();
+				}catch(NameException e){
+					System.out.println();
+				}
+				
 			}
 		});
 		
@@ -95,6 +78,13 @@ public class MainGame extends Application {
 		stage.setScene(sceneMenu);
 		stage.show();
 		
+	}
+	
+	public void checkNameInput(TextField textName) throws NameException{
+		String name = textName.getText();
+		if (name.equals("")) {
+			throw new NameException();
+		}
 	}
 		
 	public static void main(String[] args) {
