@@ -83,7 +83,7 @@ public class GameLogic {
 				}
 					
 			
-				if(numRandom == 7) {
+				if(lives <2 && (int)(Math.random()*400) == 7) {
 					Heart heart = new Heart() ;
 					heart.setPosition(900, posRandom);
 					addnewObject(heart);

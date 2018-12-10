@@ -40,7 +40,7 @@ public class MenuScene extends VBox{
 	private Scene s1, s2, s3;
 	private Stage stageOwner;
 	private Label label;
-	private OurButton startBtn,howtoBtn,highscoreBtn ;
+	private OurButton startBtn ;
 //	BackgroundPosition mainBgPos = new BackgroundPosition(Side.LEFT,0.5, true, Side.TOP, 0, false);
 	BackgroundSize mainBgSize  = new BackgroundSize(900, 600, false, false, false, false);
 	
@@ -60,9 +60,11 @@ public class MenuScene extends VBox{
 		 
 		
 		startBtn = new OurButton("START"/*,s1,stageOwner*/);
-		howtoBtn = new OurButton("HOW TO PLAY"/*,s2,stageOwner*/);
-		highscoreBtn = new OurButton("HIGHSCORES"/*,s3,stageOwner*/);
-		getChildren().addAll(label,startBtn,howtoBtn,highscoreBtn);		
+		startBtn.setFont(Font.loadFont("file:res/PressStart2P.ttf", 20));
+		startBtn.setBackground(null);
+		startBtn.setBorder(null);
+		
+		getChildren().addAll(label,startBtn);		
 		
 
 	}
@@ -71,13 +73,6 @@ public class MenuScene extends VBox{
 		return startBtn;
 	}
 
-	public OurButton getHowtoBtn() {
-		return howtoBtn;
-	}
-
-	public OurButton getHighscoreBtn() {
-		return highscoreBtn;
-	}
 		
 	
 
