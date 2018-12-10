@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import SharedObject.RenderableHolder;
 import input.InputUtility;
+import javafx.scene.media.MediaPlayer;
 
 public class GameLogic {
 	private ArrayList<Sprite> gameObjectContainer;
@@ -19,6 +20,7 @@ public class GameLogic {
 		astronaunt.setPosition(20, 200);
 		addnewObject(astronaunt);
 		RenderableHolder.playingSound.play();
+		RenderableHolder.playingSound.setCycleCount(MediaPlayer.INDEFINITE);
 	}
 	
 	protected void addnewObject(Sprite sprite) {

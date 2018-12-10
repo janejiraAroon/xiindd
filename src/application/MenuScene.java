@@ -1,5 +1,6 @@
 package application;
 
+import SharedObject.RenderableHolder;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -14,6 +15,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 
 public class MenuScene extends VBox {
 
@@ -36,10 +38,14 @@ public class MenuScene extends VBox {
 
 		BackgroundImage mainBg = new BackgroundImage(RenderableHolder.mainBg, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.DEFAULT,mainBgSize);
 		BackgroundSize mainBgSize  = new BackgroundSize(900, 600, false, false, false, false);
-    setBackground(new Background(mainBg)); // change to classloader
+		setBackground(new Background(mainBg)); // change to classloader
 
 
 		startBtn = new OurButton("START");
+		startBtn.setTextAlignment(TextAlignment.RIGHT);
+		startBtn.setStyle("-fx-background-color: #c57694");
+		startBtn.setTextFill(Color.WHITE);
+		
 		getChildren().addAll(startBtn);
 
 	}

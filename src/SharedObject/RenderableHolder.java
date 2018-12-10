@@ -53,7 +53,7 @@ public class RenderableHolder {
 	public static AudioClip gameOverSound;
 	public static Image heart;
 	public static Image addHeart;
-
+	
 	
 	static {
 		loadResourse();
