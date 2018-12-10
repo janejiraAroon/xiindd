@@ -81,15 +81,15 @@ public class GameLogic {
 					sheep.setPosition(900, posRandom);
 					addnewObject(sheep);
 				}
-					}
+					
 			
-				if(lives < 2) {
-					if((int) Math.random()*1000 == 100) {
-						Heart heart = new Heart() ;
-						heart.setPosition(900, posRandom);
-						addnewObject(heart);
-					}
+				if(numRandom == 7) {
+					Heart heart = new Heart() ;
+					heart.setPosition(900, posRandom);
+					addnewObject(heart);
+					
 				}
+			}
 				
 			}
 
