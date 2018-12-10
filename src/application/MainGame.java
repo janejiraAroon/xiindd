@@ -47,10 +47,6 @@ public class MainGame extends Application {
 							gameScene.paintComponent();
 							logic.logicUpdate();
 							RenderableHolder.getInstance().update();
-							if (InputUtility.getKeyPressed(KeyCode.E)) {
-								stage.setScene(sceneMenu);
-								menu.requestFocus();
-							}
 						}
 
 					};
