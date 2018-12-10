@@ -18,6 +18,7 @@ public class GameLogic {
 		astronaunt = new Astronaunt();
 		astronaunt.setPosition(20, 200);
 		addnewObject(astronaunt);
+		RenderableHolder.playingSound.play();
 	}
 	
 	protected void addnewObject(Sprite sprite) {
@@ -36,11 +37,16 @@ public class GameLogic {
 					if (astronaunt.interscetsSprite(what)) {
 						if (what instanceof Carrot) {
 							System.out.println("carrot");
+							RenderableHolder.collectCarrotSound.play();
 							score+=100;
 							
 							//TODO for winner
-							if (score == 10000) {
-								InputUtility.isWin = true ;
+
+							if (score == 1000) {
+								InputUtility.isWin = true;
+								RenderableHolder.playingSound.stop();
+								RenderableHolder.congratsSound.play();
+
 								System.out.println("WIN!");
 								break;
 							}
@@ -48,11 +54,18 @@ public class GameLogic {
 						}
 						if (what instanceof Sheep) {
 							System.out.println("sheep");
+							RenderableHolder.sheepSound.play();
 							if(lives == 0) {
+
+								RenderableHolder.playingSound.stop();
+								RenderableHolder.gameOverSound.play();;
+								RenderableHolder.loseSound.play();
+
 								lives -= 1 ;
 								InputUtility.isDie = true;
 								System.out.println("Game Over!") ;
 								}
+
 							else
 								lives -=1 ;
 							

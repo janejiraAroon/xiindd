@@ -8,17 +8,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class OurButton extends Button{
+public class OurButton extends Button {
 	private String text;
-	private Scene sceneNext;
-	private Stage stageOwner;
-	
-	public OurButton(String text/*, Scene sceneNext, Stage StageOwner*/) {
-//		System.out.println(label);
+
+	public OurButton(String text) {
 		this.text = text;
-		this.sceneNext = sceneNext;
-		this.stageOwner = stageOwner;
-		
+
 		this.setText(text);
 		setPrefSize(100, 50);
 		this.setOnMouseEntered(new EventHandler<MouseEvent>() {
@@ -33,14 +28,7 @@ public class OurButton extends Button{
 				setPrefSize(100, 50);
 			}
 		});
-		/*this.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				stageOwner.setScene(sceneNext);
-			}
-		});*/
+
 	}
-	
-	
-	
+
 }
