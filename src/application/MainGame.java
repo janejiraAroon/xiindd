@@ -1,6 +1,6 @@
 package application;
 
-
+import SharedObject.IRenderable;
 import SharedObject.RenderableHolder;
 import drawing.GameScene;
 import input.InputUtility;
@@ -25,32 +25,31 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
 
-
-
 public class MainGame extends Application {
-	
+
 	private Scene sceneMenu, sceneSelect, sceneLevel;
 	private MenuScene menu;
-	private LevelScene level;
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		menu = new MenuScene(); sceneMenu = new Scene(menu,900,600);
-		
-		
-		
-		
-		((Button)menu.getStartBtn()).setOnAction(new EventHandler<ActionEvent>() {
+		menu = new MenuScene();
+		sceneMenu = new Scene(menu, 900, 600);
+		RenderableHolder.menuSound.play();
+		((Button) menu.getStartBtn()).setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
 				try {
 					checkNameInput(menu.getTextName());
 					System.out.println("start");
-					VBox root = new	VBox();
+					RenderableHolder.menuSound.stop();
+					
+					
+					
+					VBox root = new VBox();
 					Scene scene = new Scene(root);
 					GameLogic logic = new GameLogic();
-					GameScene gameScene = new GameScene(900,600,menu.getTextName().getText());
-					root.getChildren().add(gameScene);		
+					GameScene gameScene = new GameScene(900, 600, menu.getTextName().getText());
+					root.getChildren().add(gameScene);
 					stage.setScene(scene);
 					gameScene.requestFocus();
 					AnimationTimer animation = new AnimationTimer() {
@@ -66,32 +65,30 @@ public class MainGame extends Application {
 						}
 					};
 					animation.start();
-				}catch(NameException e){
+				} catch (NameException e) {
 					System.out.println();
 				}
-				
+
 			}
 		});
-		
+
 		stage.setResizable(false);
 		stage.setTitle("Little Bunny");
 //		stage.setScene(scene);
 		stage.setScene(sceneMenu);
 		stage.show();
-		
+
 	}
-	
-	public void checkNameInput(TextField textName) throws NameException{
+
+	public void checkNameInput(TextField textName) throws NameException {
 		String name = textName.getText();
 		if (name.equals("")) {
 			throw new NameException();
 		}
 	}
-		
+
 	public static void main(String[] args) {
 		launch(args);
 	}
 
 }
-
-

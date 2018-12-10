@@ -3,6 +3,9 @@ package SharedObject;
 import java.util.ArrayList;
 
 import javafx.scene.image.Image;
+import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import logic.Astronaunt;
 import logic.Carrot;
 import logic.Sheep;
@@ -41,6 +44,14 @@ public class RenderableHolder {
 	public static Image levelBg ;
 	public static Image mainBg ;
 	
+	public static MediaPlayer menuSound;
+	public static MediaPlayer playingSound;
+	public static AudioClip sheepSound;
+	public static AudioClip collectCarrotSound;
+	
+	public static AudioClip  explosionSound;
+	
+	
 	static {
 		loadResourse();
 	}
@@ -72,7 +83,12 @@ public class RenderableHolder {
 	
 		levelBg = new Image(ClassLoader.getSystemResource("levelBg.png").toString());
 		mainBg = new Image(ClassLoader.getSystemResource("mainBg.png").toString());
-
+		
+		menuSound = new MediaPlayer(new Media(ClassLoader.getSystemResource("menu.mp3").toString()));
+		playingSound = new MediaPlayer(new Media(ClassLoader.getSystemResource("play2.mp3").toString()));
+		collectCarrotSound = new AudioClip(ClassLoader.getSystemResource("collectCarrot1.wav").toString());
+		sheepSound = new AudioClip(ClassLoader.getSystemResource("sheepSound2.mp3").toString());
+		explosionSound = new AudioClip(ClassLoader.getSystemResource("Explosion.wav").toString());
 	}
 	
 	public RenderableHolder() {
