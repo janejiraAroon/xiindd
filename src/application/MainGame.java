@@ -37,11 +37,7 @@ public class MainGame extends Application {
 	public void start(Stage stage) throws Exception {
 		menu = new MenuScene(); sceneMenu = new Scene(menu,900,600);
 		
-		VBox root = new	VBox();
-		Scene scene = new Scene(root);
-		GameLogic logic = new GameLogic();
-		GameScene gameScene = new GameScene(900,600);
-		root.getChildren().add(gameScene);		
+		
 		
 		
 		((Button)menu.getStartBtn()).setOnAction(new EventHandler<ActionEvent>() {
@@ -50,6 +46,11 @@ public class MainGame extends Application {
 				try {
 					checkNameInput(menu.getTextName());
 					System.out.println("start");
+					VBox root = new	VBox();
+					Scene scene = new Scene(root);
+					GameLogic logic = new GameLogic();
+					GameScene gameScene = new GameScene(900,600,menu.getTextName().getText());
+					root.getChildren().add(gameScene);		
 					stage.setScene(scene);
 					gameScene.requestFocus();
 					AnimationTimer animation = new AnimationTimer() {

@@ -14,8 +14,11 @@ import logic.GameLogic;
 
 public class GameScene extends Canvas{
 	
-	public GameScene(double width, double height) {
+	private String playerName;
+	
+	public GameScene(double width, double height, String playerName) {
 		super(width, height);
+		this.playerName = playerName;
 		this.setVisible(true);
 		addListener();
 	}
@@ -50,13 +53,19 @@ public class GameScene extends Canvas{
 			System.out.println("input die");
 			gc.setFill(Color.BLACK);
 			gc.fillText("GAME OVER", 400, 300);
+			gc.setFill(Color.LIGHTSEAGREEN);
+			String s = "Try again next time, " + playerName + "!";
+			gc.fillText(s, 200, 300);
 		}
 		
 		//TODO when game is win
 		if (InputUtility.isWin) {
 			System.out.println("input win");
 			gc.setFill(Color.BLUEVIOLET);
-			gc.fillText("You are the winner!", 400 ,300);
+			//TODO set Font and color
+			gc.fillText("Congratulations!", 400 ,300);
+			gc.fillText(playerName, 200, 300);
+			
 			gc.drawImage(RenderableHolder.rPurple, 100, 350);
 			gc.drawImage(RenderableHolder.rBlue,230, 350);
 			gc.drawImage(RenderableHolder.rGreen,360, 350);
