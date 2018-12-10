@@ -12,7 +12,7 @@ public class Sheep extends Sprite{
 		super();
 		countPic = 1;
 		setImage(RenderableHolder.sheep1);
-		update();
+		
 	}
 	
 	private void updateByScore() {

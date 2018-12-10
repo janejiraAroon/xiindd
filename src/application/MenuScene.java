@@ -1,6 +1,17 @@
 package application;
 
 import javafx.event.ActionEvent;
+import SharedObject.IRenderable;
+import SharedObject.RenderableHolder;
+import input.InputUtility;
+import javafx.animation.AnimationTimer;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import logic.GameLogic;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -44,7 +55,7 @@ public class MenuScene extends VBox{
 		setAlignment(Pos.CENTER_LEFT);	
 		setPadding(new Insets(20,50,0,450));
 		
-		BackgroundImage mainBg = new BackgroundImage(new Image("mainBg.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.DEFAULT,mainBgSize);
+		BackgroundImage mainBg = new BackgroundImage(RenderableHolder.mainBg, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.DEFAULT,mainBgSize);
 		setBackground(new Background(mainBg));   //change to classloader
 		 
 		

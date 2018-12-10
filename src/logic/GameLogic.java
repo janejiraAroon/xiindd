@@ -11,6 +11,7 @@ public class GameLogic {
 	public static int score = 0;
 	private int numRandom;
 	private double posRandom;
+	private int lives  = 2 ;
 	
 	public GameLogic() {
 		this.gameObjectContainer = new ArrayList<Sprite>();
@@ -37,7 +38,7 @@ public class GameLogic {
 							System.out.println("carrot");
 							score+=100;
 							//TODO for winner
-							if (score == 100) {
+							if (score == 10000) {
 								InputUtility.isWin = true;
 								System.out.println("WIN!");
 								break;
@@ -46,7 +47,11 @@ public class GameLogic {
 						}
 						if (what instanceof Sheep) {
 							System.out.println("sheep");
-							InputUtility.isDie = true;
+							if(lives == 0) {
+								InputUtility.isDie = true;}
+							else
+								lives -=1 ;
+							
 							gameObjectContainer.remove(i);
 						}
 					}

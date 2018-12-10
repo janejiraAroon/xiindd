@@ -44,6 +44,7 @@ public class MainGame extends Application {
 		GameScene gameScene = new GameScene(900,600);
 		root.getChildren().add(gameScene);		
 		
+			
 		
 		((Button)menu.getStartBtn()).setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -53,6 +54,7 @@ public class MainGame extends Application {
 				gameScene.requestFocus();
 				AnimationTimer animation = new AnimationTimer() {
 					public void handle(long now) {
+						gameScene.updateBg();
 						gameScene.paintComponent();
 						logic.logicUpdate();
 						RenderableHolder.getInstance().update();

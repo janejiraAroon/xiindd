@@ -8,7 +8,6 @@ public class Astronaunt extends Sprite{
 	
 	public Astronaunt() {
 		super();
-		//TODO change the name of pic
 		String image_path = ClassLoader.getSystemResource("astronaut.png").toString();
 		setImage(new Image(image_path));
 	}
@@ -19,18 +18,22 @@ public class Astronaunt extends Sprite{
 	}
 
 	public void update() {
-		if (InputUtility.getKeyPressed(KeyCode.UP)) {
+		if (InputUtility.getKeyPressed(KeyCode.SPACE)) {
 			update(0,-5);
 		}
+		else {
+			if(positionY != 500)
+				update(0,3);}
 		if (InputUtility.getKeyPressed(KeyCode.LEFT)) {
-			update(-5,0);
+			if(positionX != 0) {
+				update(-5,0);
+			}
 		}
 		if (InputUtility.getKeyPressed(KeyCode.RIGHT)) {
+			if(positionX != 850) {
 			update(5,0);
 		}
-		if (InputUtility.getKeyPressed(KeyCode.DOWN)) {
-			update(0,5);
-		}
+			}
 	}
 	
 }

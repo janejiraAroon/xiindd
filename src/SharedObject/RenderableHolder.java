@@ -39,6 +39,7 @@ public class RenderableHolder {
 	public static Image rRed;
 	
 	public static Image levelBg ;
+	public static Image mainBg ;
 	
 	static {
 		loadResourse();
@@ -70,6 +71,7 @@ public class RenderableHolder {
 		rRed = new Image(ClassLoader.getSystemResource("Rred2.png").toString());
 	
 		levelBg = new Image(ClassLoader.getSystemResource("levelBg.png").toString());
+		mainBg = new Image(ClassLoader.getSystemResource("mainBg.png").toString());
 
 	}
 	

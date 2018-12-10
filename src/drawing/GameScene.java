@@ -3,6 +3,7 @@ package drawing;
 import SharedObject.IRenderable;
 import SharedObject.RenderableHolder;
 import input.InputUtility;
+import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -31,13 +32,10 @@ public class GameScene extends Canvas{
 	
 	public void paintComponent() {
 		//TODO draw a background and decorate
-		
 		GraphicsContext gc = this.getGraphicsContext2D();
 
 		//gc.setFill(Color.AQUA);		
-		gc.fillRect(0, 0, 900, 600);
-		gc.drawImage(RenderableHolder.levelBg,0,0,900,600);
-
+		//gc.fillRect(0, 0, 900, 600);
 		
 		for (IRenderable sprite : RenderableHolder.getInstance().getAllSprite()) {
 			// System.out.println(entity.getZ());
@@ -69,5 +67,12 @@ public class GameScene extends Canvas{
 	
 	}
 	
-}
+	public void updateBg() {
+		GraphicsContext gc = this.getGraphicsContext2D();
+		gc.drawImage(RenderableHolder.levelBg, 0, 0,900,600);
+
+	}
+	}
+
+	
 
