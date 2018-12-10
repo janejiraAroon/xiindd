@@ -1,10 +1,10 @@
 package application;
 
+import SharedObject.RenderableHolder;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
@@ -18,7 +18,6 @@ import javafx.scene.text.Font;
 public class MenuScene extends VBox {
 
 	private Label label;
-
 	private OurButton startBtn;
 	private TextField textName;
 	private Label enterNameLabel;
@@ -34,10 +33,10 @@ public class MenuScene extends VBox {
 		setPadding(new Insets(20, 50, 0, 450));
 		createEnterNameField();
 
-		BackgroundImage mainBg = new BackgroundImage(RenderableHolder.mainBg, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.DEFAULT,mainBgSize);
-		BackgroundSize mainBgSize  = new BackgroundSize(900, 600, false, false, false, false);
-    setBackground(new Background(mainBg)); // change to classloader
-
+		BackgroundImage mainBg = new BackgroundImage(RenderableHolder.mainBg, BackgroundRepeat.NO_REPEAT,
+				BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, mainBgSize);
+		BackgroundSize mainBgSize = new BackgroundSize(900, 600, false, false, false, false);
+		setBackground(new Background(mainBg)); // change to classloader
 
 		startBtn = new OurButton("START");
 		getChildren().addAll(startBtn);
@@ -71,5 +70,8 @@ public class MenuScene extends VBox {
 		return enterNameLabel;
 	}
 
+	public BackgroundSize getMainBgSize() {
+		return mainBgSize;
+	}
 
 }

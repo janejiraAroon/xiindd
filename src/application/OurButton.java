@@ -28,7 +28,6 @@ public class OurButton extends Button {
 				setPrefSize(100, 50);
 			}
 		});
-
 	}
 
 }

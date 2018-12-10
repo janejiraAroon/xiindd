@@ -39,14 +39,10 @@ public class GameLogic {
 							System.out.println("carrot");
 							RenderableHolder.collectCarrotSound.play();
 							score+=100;
-							
-							//TODO for winner
-
-							if (score == 1000) {
+							if (score == 3600) {
 								InputUtility.isWin = true;
 								RenderableHolder.playingSound.stop();
 								RenderableHolder.congratsSound.play();
-
 								System.out.println("WIN!");
 								break;
 							}
@@ -56,7 +52,6 @@ public class GameLogic {
 							System.out.println("sheep");
 							RenderableHolder.sheepSound.play();
 							if(lives == 0) {
-
 								RenderableHolder.playingSound.stop();
 								RenderableHolder.gameOverSound.play();;
 								RenderableHolder.loseSound.play();
@@ -65,10 +60,9 @@ public class GameLogic {
 								InputUtility.isDie = true;
 								System.out.println("Game Over!") ;
 								}
-
-							else
+							else {
 								lives -=1 ;
-							
+							}
 							gameObjectContainer.remove(i);
 						}
 						if(what instanceof Heart) {

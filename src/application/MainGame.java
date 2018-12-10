@@ -1,6 +1,5 @@
 package application;
 
-import SharedObject.IRenderable;
 import SharedObject.RenderableHolder;
 import drawing.GameScene;
 import input.InputUtility;
@@ -9,25 +8,16 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import logic.GameLogic;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
-import javafx.scene.paint.ImagePattern;
-import javafx.stage.Stage;
 
 public class MainGame extends Application {
 
-	private Scene sceneMenu, sceneSelect, sceneLevel;
+	private Scene sceneMenu;
 	private MenuScene menu;
 
 	@Override
@@ -43,9 +33,6 @@ public class MainGame extends Application {
 					checkNameInput(menu.getTextName());
 					System.out.println("start");
 					RenderableHolder.menuSound.stop();
-					
-					
-					
 					VBox root = new VBox();
 					Scene scene = new Scene(root);
 					GameLogic logic = new GameLogic();
@@ -54,6 +41,7 @@ public class MainGame extends Application {
 					stage.setScene(scene);
 					gameScene.requestFocus();
 					AnimationTimer animation = new AnimationTimer() {
+						@Override
 						public void handle(long now) {
 							gameScene.updateBg();
 							gameScene.paintComponent();
@@ -73,7 +61,6 @@ public class MainGame extends Application {
 
 			}
 		});
-
 
 		stage.setResizable(false);
 		stage.setTitle("Little Bunny");
