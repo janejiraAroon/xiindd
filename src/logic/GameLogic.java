@@ -11,12 +11,12 @@ public class GameLogic {
 	public static int score = 0;
 	private int numRandom;
 	private double posRandom;
-	private int lives  = 2 ;
+	public static int lives  = 2 ;
 	
 	public GameLogic() {
 		this.gameObjectContainer = new ArrayList<Sprite>();
 		astronaunt = new Astronaunt();
-		astronaunt.setPosition(0, 200);
+		astronaunt.setPosition(20, 200);
 		addnewObject(astronaunt);
 		RenderableHolder.playingSound.play();
 	}
@@ -39,11 +39,14 @@ public class GameLogic {
 							System.out.println("carrot");
 							RenderableHolder.collectCarrotSound.play();
 							score+=100;
+							
 							//TODO for winner
-							if (score == 100) {
+
+							if (score == 1000) {
 								InputUtility.isWin = true;
 								RenderableHolder.playingSound.stop();
 								RenderableHolder.congratsSound.play();
+
 								System.out.println("WIN!");
 								break;
 							}
@@ -53,13 +56,23 @@ public class GameLogic {
 							System.out.println("sheep");
 							RenderableHolder.sheepSound.play();
 							if(lives == 0) {
+
 								RenderableHolder.playingSound.stop();
 								RenderableHolder.gameOverSound.play();;
 								RenderableHolder.loseSound.play();
-								InputUtility.isDie = true;}
+
+								lives -= 1 ;
+								InputUtility.isDie = true;
+								System.out.println("Game Over!") ;
+								}
+
 							else
 								lives -=1 ;
 							
+							gameObjectContainer.remove(i);
+						}
+						if(what instanceof Heart) {
+							lives += 1 ;
 							gameObjectContainer.remove(i);
 						}
 					}
@@ -81,6 +94,16 @@ public class GameLogic {
 					sheep.setPosition(900, posRandom);
 					addnewObject(sheep);
 				}
+					
+			
+				if(lives <2 && (int)(Math.random()*400) == 7) {
+					Heart heart = new Heart() ;
+					heart.setPosition(900, posRandom);
+					addnewObject(heart);
+					
+				}
+			}
+				
 			}
 
 		}
@@ -88,4 +111,4 @@ public class GameLogic {
 
 	}
 
-}
+

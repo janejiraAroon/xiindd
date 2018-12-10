@@ -18,6 +18,7 @@ import javafx.scene.text.Font;
 public class MenuScene extends VBox {
 
 	private Label label;
+
 	private OurButton startBtn;
 	private TextField textName;
 	private Label enterNameLabel;
@@ -33,9 +34,10 @@ public class MenuScene extends VBox {
 		setPadding(new Insets(20, 50, 0, 450));
 		createEnterNameField();
 
-		BackgroundImage mainBg = new BackgroundImage(new Image("mainBg.png"), BackgroundRepeat.NO_REPEAT,
-				BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, mainBgSize);
-		setBackground(new Background(mainBg)); // change to classloader
+		BackgroundImage mainBg = new BackgroundImage(RenderableHolder.mainBg, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.DEFAULT,mainBgSize);
+		BackgroundSize mainBgSize  = new BackgroundSize(900, 600, false, false, false, false);
+    setBackground(new Background(mainBg)); // change to classloader
+
 
 		startBtn = new OurButton("START");
 		getChildren().addAll(startBtn);
@@ -68,5 +70,6 @@ public class MenuScene extends VBox {
 	public Label getEnterNameLabel() {
 		return enterNameLabel;
 	}
+
 
 }

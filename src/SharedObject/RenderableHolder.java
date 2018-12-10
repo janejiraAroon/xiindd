@@ -51,6 +51,9 @@ public class RenderableHolder {
 	public static AudioClip loseSound;
 	public static AudioClip congratsSound;
 	public static AudioClip gameOverSound;
+	public static Image heart;
+	public static Image addHeart;
+
 	
 	static {
 		loadResourse();
@@ -84,6 +87,7 @@ public class RenderableHolder {
 		levelBg = new Image(ClassLoader.getSystemResource("levelBg.png").toString());
 		mainBg = new Image(ClassLoader.getSystemResource("mainBg.png").toString());
 		
+
 		menuSound = new MediaPlayer(new Media(ClassLoader.getSystemResource("menu.mp3").toString()));
 		playingSound = new MediaPlayer(new Media(ClassLoader.getSystemResource("play2.mp3").toString()));
 		collectCarrotSound = new AudioClip(ClassLoader.getSystemResource("collectCarrot1.wav").toString());
@@ -91,6 +95,11 @@ public class RenderableHolder {
 		loseSound = new AudioClip(ClassLoader.getSystemResource("lose.wav").toString());
 		congratsSound = new AudioClip(ClassLoader.getSystemResource("congratulations.wav").toString());
 		gameOverSound = new AudioClip(ClassLoader.getSystemResource("game_over.wav").toString());
+
+		heart = new Image(ClassLoader.getSystemResource("heart.png").toString(),50,50,true,false);
+		addHeart = new Image(ClassLoader.getSystemResource("addHeart.png").toString(),50,50,true,false);
+
+
 	}
 	
 	public RenderableHolder() {

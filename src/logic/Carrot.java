@@ -4,7 +4,7 @@ import SharedObject.RenderableHolder;
 import javafx.scene.image.Image;
 
 public class Carrot extends Sprite{
-
+	
 	public Carrot() {
 		super();
 		setImageByScore();
@@ -15,7 +15,7 @@ public class Carrot extends Sprite{
 		if (GameLogic.score < 500) {
 			setImage(RenderableHolder.cPurple);
 		}else if (GameLogic.score < 1100) {
-			setImage(RenderableHolder.cBlue);
+		setImage(RenderableHolder.cBlue);
 		}else if (GameLogic.score < 1800) {
 			setImage(RenderableHolder.cGreen);
 		}else if (GameLogic.score < 2400) {
@@ -24,8 +24,9 @@ public class Carrot extends Sprite{
 			setImage(RenderableHolder.cOrange);
 		}else {
 			setImage(RenderableHolder.cRed);
-		}
+		
 	}
+		}
 	
 	private void updateByScore() {
 		if (GameLogic.score < 500) {

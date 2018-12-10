@@ -32,6 +32,7 @@ public class MainGame extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
+
 		menu = new MenuScene();
 		sceneMenu = new Scene(menu, 900, 600);
 		RenderableHolder.menuSound.play();
@@ -63,6 +64,7 @@ public class MainGame extends Application {
 								menu.requestFocus();
 							}
 						}
+
 					};
 					animation.start();
 				} catch (NameException e) {
@@ -72,9 +74,9 @@ public class MainGame extends Application {
 			}
 		});
 
+
 		stage.setResizable(false);
 		stage.setTitle("Little Bunny");
-//		stage.setScene(scene);
 		stage.setScene(sceneMenu);
 		stage.show();
 
