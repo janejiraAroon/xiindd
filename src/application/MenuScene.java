@@ -14,6 +14,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 
 public class MenuScene extends VBox {
 
@@ -39,6 +40,10 @@ public class MenuScene extends VBox {
 		setBackground(new Background(mainBg)); // change to classloader
 
 		startBtn = new OurButton("START");
+		startBtn.setTextAlignment(TextAlignment.RIGHT);
+		startBtn.setStyle("-fx-background-color: #c57694");
+		startBtn.setTextFill(Color.WHITE);
+
 		getChildren().addAll(startBtn);
 
 	}

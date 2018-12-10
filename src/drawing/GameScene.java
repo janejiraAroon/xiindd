@@ -63,8 +63,9 @@ public class GameScene extends Canvas {
 			gc.setFont(Font.loadFont("file:res/PressStart2P.ttf", 50));
 			gc.fillText("GAME OVER", 200, 300);
 			gc.setFill(Color.LIGHTSEAGREEN);
-			String s = "Try again next time, " + playerName + "!";
-			gc.fillText(s, 200, 300);
+			gc.setFont(Font.loadFont("file:res/PressStart2P.ttf", 30));
+			String s = "\nTry again next time, " + playerName + "!";
+			gc.fillText(s, 100, 300);
 		}
 	}
 
@@ -73,9 +74,10 @@ public class GameScene extends Canvas {
 			System.out.println("input win");
 
 			gc.setFill(Color.BLUEVIOLET);
+
 			gc.setFont(Font.loadFont("file:res/PressStart2P.ttf", 50));
-			gc.fillText("Congratulations!", 400, 300);
-			gc.fillText(playerName, 200, 300);
+
+			gc.fillText(playerName + "\nCongratulations!", 0, 300);
 
 			gc.drawImage(RenderableHolder.rPurple, 100, 350);
 			gc.drawImage(RenderableHolder.rBlue, 230, 350);
