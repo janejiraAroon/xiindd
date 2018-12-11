@@ -2,7 +2,6 @@ package application;
 
 import SharedObject.RenderableHolder;
 import drawing.GameScene;
-import input.InputUtility;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -13,16 +12,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import logic.GameLogic;
-import javafx.scene.input.KeyCode;
 
 public class MainGame extends Application {
 
 	private Scene sceneMenu;
 	private MenuScene menu;
-
+	
 	@Override
 	public void start(Stage stage) throws Exception {
-
+		
 		menu = new MenuScene();
 		sceneMenu = new Scene(menu, 900, 600);
 		RenderableHolder.menuSound.play();

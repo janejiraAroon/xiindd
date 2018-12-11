@@ -1,7 +1,9 @@
 package SharedObject;
 
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 
+import application.MainGame;
 import javafx.scene.image.Image;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
@@ -13,6 +15,8 @@ import logic.Sprite;
 
 public class RenderableHolder {
 	private static final RenderableHolder instance = new RenderableHolder();
+
+	private static final ClassLoader CLASS_LOADER = RenderableHolder.class.getClassLoader();
 
 	private ArrayList<IRenderable> allSprite;
 	private Astronaunt astronaunt;
@@ -86,7 +90,12 @@ public class RenderableHolder {
 		levelBg = new Image(ClassLoader.getSystemResource("levelBg.png").toString());
 		mainBg = new Image(ClassLoader.getSystemResource("mainBg.png").toString());
 
-		menuSound = new MediaPlayer(new Media(ClassLoader.getSystemResource("menu.mp3").toString()));
+		try {
+			menuSound = new MediaPlayer(new Media(CLASS_LOADER.getResource("menu.mp3").toURI().toString()));
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		playingSound = new MediaPlayer(new Media(ClassLoader.getSystemResource("play2.mp3").toString()));
 		collectCarrotSound = new AudioClip(ClassLoader.getSystemResource("collectCarrot1.wav").toString());
 		sheepSound = new AudioClip(ClassLoader.getSystemResource("sheepSound2.mp3").toString());

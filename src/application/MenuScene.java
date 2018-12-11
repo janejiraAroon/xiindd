@@ -26,7 +26,7 @@ public class MenuScene extends VBox {
 
 	public MenuScene() {
 		label = new Label("Little\nBunny");
-		label.setFont(Font.loadFont("file:res/PressStart2P.ttf", 60));
+		label.setFont(Font.loadFont(MenuScene.class.getClassLoader().getResource("PressStart2P.ttf").toExternalForm(), 60));
 		label.setTextFill(Color.WHITE);
 		getChildren().add(label);
 		setSpacing(15);
